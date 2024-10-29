@@ -1,0 +1,9 @@
+include:
+  - docker-compose.yaml
+services:
+  probe:
+    build:
+      context: your-probe
+      dockerfile: Dockerfile
+    environment:
+      - OTEL_ENDPOINT=http://prometheus:9090/api/v1/otlp/v1/metrics
