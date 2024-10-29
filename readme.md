@@ -14,8 +14,8 @@ The full API reference of eth node can be found [here](https://ethereum.org/en/d
 
 The whole Grafana stack components are in the `docker-compose.yaml` file.
 
-To start the whole stack, you can simply run `docker-compose up --force-recreate`
- 
+To start the whole stack, you can simply run `docker compose up --force-recreate`
+
 
 # PART 1: Creating a Probe to collect last block from an ETH node
 
@@ -25,7 +25,7 @@ ETH Node is not compatible with the OpenTelemetryProtocol standard (OTLP).
 
 You are asked to code a probe, with the technology of your choice, to continuously pull the last block from the eth node and push them as a metric into the OTLP protocol every 5 seconds.
 
-You should put all your code in the `your-probe` folder, where there is already a typescript boilerplate. 
+You should put all your code in the `your-probe` folder, where there is already a typescript boilerplate.
 If you are not comfortable with typesecript, feel free to use the language of your choice.
 
 To get the latest block from the eth node, you will need a single rest call to the ETH node.
@@ -45,6 +45,11 @@ and the data of interest in that response call is under `nodeBody.result.number`
 
 In addition to the curl, a typescript code is also provided in the `your-probe/src/client.ts`.
 
+
+To run probe with monitoring use:
+```shell
+docker compose -f docker-compose-app.yaml up --force-recreate --build
+```
 
 # PART 2: Grafana monitoring
 

@@ -1,2 +1,4 @@
 */**/*.result.ts
 */**/node_modules
+.clj-kondo
+.lsp
